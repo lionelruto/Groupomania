@@ -1,0 +1,166 @@
+@import './utils/mixins';
+@import './utils/placeholders';
+@import './utils/variables';
+
+.container {
+    @include flex-align (column, flex-start);
+    position: relative;
+    font-size: 1.3rem;
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
+}
+
+.loader {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../public/logobig2.png'), url('../../public/imgs/fd.png');
+    background-repeat: no-repeat, repeat;
+    background-position: 1100px 200px ;
+    background-attachment: fixed;
+    z-index: 5;
+    opacity: 100%;
+    animation: disappear 2000ms cubic-bezier(.95,0,.86,1.08) forwards;
+}
+.imgContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    &__img {
+        position: absolute;
+        max-width: 1300px;
+        top: calc(50% - 130px);
+        left: calc(50% - 650px);
+        animation: move 2000ms cubic-bezier(.95,0,.86,1.08) forwards;
+    }
+}
+@keyframes disappear {
+    97% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0%;
+        visibility: hidden;
+    }
+}
+@keyframes move {
+    50% {
+        top: calc(50% - 130px);
+        left: calc(50% - 650px);
+        width: 1300px;
+    }
+    97% {
+        opacity: 100%;
+    }
+    100% {
+        top: 10px;
+        left: 0;
+        width: 805px;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.sous-container {
+    width: 100%;
+    @extend %flex-center;
+}
+
+.logo {
+    max-width: 800px;
+    margin: 10px 5px;
+    &__img  {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.cards {
+    width: 500px;
+    height: 650px;
+    position: relative;
+    margin: 0 10px;
+}
+.cards2 {
+    width: 500px;
+    height: 650px;
+    position: relative;
+    margin: 0 10px;
+    opacity: 0;
+    z-index: 6;
+    animation: appear 2000ms cubic-bezier(1,.2,.81,1.01) forwards;
+}
+@keyframes appear {
+    91% {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+}
+
+.cadre {
+    background-color: $bleumoyen;
+    border-radius: 15px;
+    @include flex-direction(column);
+    padding: 25px;
+    width: 75%;
+    height: 80%;
+    &__signin {
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        z-index: 1;
+        box-shadow: -5px -5px 6px 0px rgba(0,0,0,0.66);
+    }
+    &__signup {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 0;
+        box-shadow: 5px 5px 6px 0px rgba(0,0,0,0.66);
+    }
+}
+
+.form {
+    &__question {
+        @include flex-direction(column);
+    }
+    &__errors {
+        margin-top: 0;
+    }
+    &__butt {
+        @include flex-justify(row, center);
+        margin-top: 10px;
+        &__button {
+            background-color: $bleumoyen;
+            width: 35%;
+            height: 40px;
+            font-size: 1.3rem;
+            color: black;
+            @include theBoxShadow;
+        }
+    }
+}
+
+input {
+    height: 35px;
+    border-radius: 10px;
+    padding-left: 7px;
+    font-size: 1rem;
+    color: rgb(56, 56, 56);
+}
+
+p {
+    color: $rougegroupomania;
+    margin: 5px 0 5px 0;
+    font-size: 1rem;
+}

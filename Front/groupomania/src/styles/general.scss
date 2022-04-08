@@ -1,0 +1,27 @@
+@import './utils/mixins';
+@import './utils/placeholders';
+@import './utils/variables';
+
+.greatContainer {
+    @include flex-align(column, center);
+    padding: 0 20px;
+}
+
+.feedContainer {
+    @include flex-align(column, center);
+    padding-top: 110px;
+    width: 100%;
+    max-width: 900px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.thread {
+    width: 100%;
+}
+
+.spacediv {
+    height: 10px;
+}
